@@ -1,0 +1,701 @@
+{{ header }}
+<div id="content" class="{{ class }}">{{ content_top }}
+    <ul class="breadcrumb btn-back-margin-top">
+        {% for breadcrumb in breadcrumbs %}
+            <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="row">
+        <div class="row product-column-main">
+            <div class="product-layout col-lg-4 col-md-4 col-sm-4 col-xs-4 product-right-padding-main">
+                <div class="product-thumb transition product-border-main">
+                    <div class="product-image-block-main">
+                        {% if thumb or images %}
+                            <ul class="thumbnails">
+                                {% if thumb %}
+                                    <li><a href="{{ popup }}" title="{{ heading_title }}">
+                                            <img
+                                                    src="{{ thumb }}" title="{{ heading_title }}"
+                                                    alt="{{ heading_title }}" class="product-main-img"/>
+                                        </a></li>
+                                {% endif %}
+                                {% if images %}
+                                    {% for image in images %}
+                                        <li class="image-additional"><a class="thumbnail" href="{{ image.popup }}"
+                                                                        title="{{ heading_title }}"> <img
+                                                        src="{{ image.thumb }}" title="{{ heading_title }}"
+                                                        alt="{{ heading_title }}"/></a></li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-layout col-lg-7 col-md-7 col-sm-7 col-xs-7 product-information-block-main">
+                <div class="product-header-block">
+                    <h2 class="product-title">{{ heading_title }}</h2>
+                    {% for attribute_group in attribute_groups %}
+                        <h2 class="product-pack-info">
+                            {% if attribute_group.attribute_group_id == 9 %}
+                                {{ attribute_group.attribute.0.name }}
+                            {% endif %}
+                        </h2>
+                        <p class="product-direction-info">
+                            {% if attribute_group.attribute_group_id == 10 %}
+                                {{ attribute_group.attribute.0.name }}
+                            {% endif %}
+                        </p>
+                    {% endfor %}
+                </div>
+
+                <div class="caption product-information-main">
+                    <div class="row product-some-information-block-1">
+                        <div class="product-and-form-block-flex">
+                            {% for attribute_group in attribute_groups %}
+                                {% if attribute_group.attribute_group_id == 8 %}
+                                    <div class="col-sm-3">
+                                        <div class="product-form-block">
+                                            <div>
+                                                {% if attribute_group.attribute.0.attribute_id == 28 or attribute_group.attribute.0.attribute_id == 29 or attribute_group.attribute.0.attribute_id == 102%}
+                                                            <img src="image/catalog/Products/form-babble.png" class="product-form-img product-form-img-babble">
+                                                {% endif %}
+                                                {% if attribute_group.attribute.0.attribute_id == 30 %}
+                                                    <img src="image/catalog/Products/form.png" class="product-form-img">
+                                                {% endif %}
+                                                {% if attribute_group.attribute.0.attribute_id == 31 %}
+                                                    <img src="image/catalog/Products/form-water.png"
+                                                         class="product-form-img">
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-block-flex-column">
+                                                <h4 class="product-form-h4">
+                                                    {% if current_lang == "uk-ua" %}Форма{% endif %}
+                                                    {% if current_lang == "ru-ru" %}Форма{% endif %}
+                                                    {% if current_lang == "en-gb" %}Form{% endif %}
+                                                </h4>
+                                                <p class="product-category-form-p">{{ attribute_group.attribute.0.name }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+
+                                {% if attribute_group.attribute_group_id == 9 %}
+                                    <div class="col-sm-3">
+                                        <div class="product-pack-block">
+                                            <div>
+                                                {% if attribute_group.attribute.0.attribute_id == 36 %}
+                                                    <img src="image/catalog/Products/1pack.png" class="product-pack-img-pack">
+                                                {% else %}
+                                                    <img src="image/catalog/Products/pack.png" class="product-pack-img">
+                                                {% endif %}
+                                            </div>
+                                            <div>
+                                                <h4 class="product-pack-h4">
+                                                    {% if current_lang == "uk-ua" %}Пакування{% endif %}
+                                                    {% if current_lang == "ru-ru" %}Упаковка{% endif %}
+                                                    {% if current_lang == "en-gb" %}Packaging{% endif %}
+                                                </h4>
+                                                <p class="product-category-pack-p">{{ attribute_group.attribute.0.name }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-sm-6 btn-flex-block-center">
+                            <a class="btn-learn-more-100">
+{#                                href="{{ product.href }}"#}
+                                <button type="button" id="modalWindowBtn" class="btn btn-success product-info-btn">
+                                    {% if current_lang == "uk-ua" %}Дізнатись ціну{% endif %}
+                                    {% if current_lang == "ru-ru" %}Узнать цену{% endif %}
+                                    {% if current_lang == "en-gb" %}Learn price{% endif %}
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+{#                    <div class="delivery-info-block block-margin-top-2em">#}
+{#                        <p class="delivery-info-p">#}
+{#                            {% if current_lang == "uk-ua" %}Доставка прораховується індивідуально{% endif %}#}
+{#                            {% if current_lang == "ru-ru" %}Доставка рассчитывается индивидуально{% endif %}#}
+{#                            {% if current_lang == "en-gb" %}Delivery is calculated individually{% endif %}#}
+{#                        </p>#}
+{#                        <img src="image/catalog/Products/truck.png" class="delivery-info-img">#}
+{#                    </div>#}
+
+                    <div class="product-attribute-table-block-main">
+                        {% for attribute_group in attribute_groups %}
+                            {% if attribute_group.attribute_group_id == 7 %}
+                                <h4 class="product-attribute-h4">
+                                    {% if current_lang == "uk-ua" %}Склад{% endif %}
+                                    {% if current_lang == "ru-ru" %}Состав{% endif %}
+                                    {% if current_lang == "en-gb" %}Composition{% endif %}
+                                </h4>
+
+{#                                {% if product_id == 54 %}#}
+{#                                    <table class="table product-attribute-table-main">#}
+{#                                        <tbody>#}
+{#                                            <tr class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-attribute-table-tr table-tr-flex">#}
+{#                                                <td class="col-lg-2 col-md-1 col-sm-1 col-xs-1 product-attribute-table-td-text">#}
+{#                                                    16%#}
+{#                                                </td>#}
+{#                                                <td class="col-lg-10 col-md-5 col-sm-5 col-xs-5">#}
+{#                                                    {% if current_lang == "uk-ua" %}Оксид магнію (MgO), розчинний у воді{% endif %}#}
+{#                                                    {% if current_lang == "ru-ru" %}Оксид магния (MgO), растворимый в воде{% endif %}#}
+{#                                                    {% if current_lang == "en-gb" %}Magnesium oxide (MgO), soluble in water{% endif %}#}
+{#                                                </td>#}
+{#                                                <td class="col-lg-2 col-md-1 col-sm-1 col-xs-1 product-attribute-table-td-text">#}
+{#                                                   0,007#}
+{#                                                </td>#}
+{#                                                <td class="col-lg-10 col-md-5 col-sm-5 col-xs-5">#}
+{#                                                    {% if current_lang == "uk-ua" %}Марганець (Mn){% endif %}#}
+{#                                                    {% if current_lang == "ru-ru" %}Марганец (Mn){% endif %}#}
+{#                                                    {% if current_lang == "en-gb" %}Manganese (Mn){% endif %}#}
+{#                                                </td>#}
+{#                                            </tr>#}
+{#                                            <tr class="col-lg-12 col-md-6 col-sm-6 col-xs-6 product-attribute-table-tr table-tr-flex">#}
+{#                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 product-attribute-table-td-text">#}
+{#                                                    32%#}
+{#                                                </td>#}
+{#                                                <td class="col-lg-10 col-md-10 col-sm-10 col-xs-10">#}
+{#                                                    {% if current_lang == "uk-ua" %}Триоксид сірки (SO3), розчинний у воді{% endif %}#}
+{#                                                    {% if current_lang == "ru-ru" %}Триоксида серы (SO3), растворимый в воде{% endif %}#}
+{#                                                    {% if current_lang == "en-gb" %}Sulfur trioxide (SO3), soluble in water{% endif %}#}
+{#                                                </td>#}
+{#                                            </tr>#}
+{#                                        </tbody>#}
+{#                                    </table>#}
+{#                                {% else %}#}
+
+{#                                    <table class="table product-attribute-table-main">#}
+{#                                        <tbody>#}
+{#                                        {% for attribute in attribute_group.attribute %}#}
+{#                                            <tr class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-attribute-table-tr">#}
+{#                                                {% if attribute.text %}#}
+{#                                                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 product-attribute-table-td-text">{{ attribute.text }}</td>#}
+{#                                                    <td class="col-lg-9 col-md-9 col-sm-9 col-xs-9 product-attribute-table-td-name">{{ attribute.name }}</td>#}
+{#                                                {% else %}#}
+{#                                                    <td class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-attribute-table-td-name">{{ attribute.name }}</td>#}
+{#                                                {% endif %}#}
+{#                                            </tr>#}
+{#                                        {% endfor %}#}
+{#                                        </tbody>#}
+{#                                    </table>#}
+                                <table class="table product-attribute-table-main">
+                                    <tbody>
+                                    {% for attribute in attribute_group.attribute %}
+                                        <tr class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-attribute-table-tr table-tr-flex">
+                                            {% if attribute.text %}
+                                                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 product-attribute-table-td-text">{{ attribute.text }}</td>
+                                                <td class="col-lg-9 col-md-9 col-sm-9 col-xs-9 product-attribute-table-td-name">{{ attribute.name }}</td>
+                                            {% else %}
+                                                <td class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-attribute-table-td-name">{{ attribute.name }}</td>
+                                            {% endif %}
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                                {% if product_id == 51 %}
+                                    <h4 class="product-attribute-h4">
+                                        {% if current_lang == "uk-ua" %}Норми внесення для підвищення pH ґрунту на 1{% endif %}
+                                        {% if current_lang == "ru-ru" %}Нормы внесения для повышения pH почвы на 1{% endif %}
+                                        {% if current_lang == "en-gb" %}Application rates to increase soil pH by 1{% endif %}
+                                    </h4>
+                                    <div>
+                                        <table class="table product-attribute-table-main">
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 product-attribute-table-td-text td-center">
+                                                    {% if current_lang == "uk-ua" %}Тип ґрунту{% endif %}
+                                                    {% if current_lang == "ru-ru" %}Тип почвы{% endif %}
+                                                    {% if current_lang == "en-gb" %}Type of soil{% endif %}
+                                                </td>
+                                                <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7 product-attribute-table-td-text td-center">
+                                                    {% if current_lang == "uk-ua" %}Норма внесення при глибині провапнованого профілю ґрунту{% endif %}
+                                                    {% if current_lang == "ru-ru" %}Норма внесения на глубине произвесткованого профиля почвы{% endif %}
+                                                    {% if current_lang == "en-gb" %}Application rate at the depth of the limed soil profile{% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"></td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">
+                                                    {% if current_lang == "uk-ua" %}25 см{% endif %}
+                                                    {% if current_lang == "ru-ru" %}25 см{% endif %}
+                                                    {% if current_lang == "en-gb" %}25 cm{% endif %}
+                                                </td>
+                                                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 td-center">
+                                                    {% if current_lang == "uk-ua" %}15 см{% endif %}
+                                                    {% if current_lang == "ru-ru" %}15 см{% endif %}
+                                                    {% if current_lang == "en-gb" %}15 cm{% endif %}
+                                                </td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">
+                                                    {% if current_lang == "uk-ua" %}10 см{% endif %}
+                                                    {% if current_lang == "ru-ru" %}10 см{% endif %}
+                                                    {% if current_lang == "en-gb" %}10 cm{% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                    {% if current_lang == "uk-ua" %}Піщані та супіщані{% endif %}
+                                                    {% if current_lang == "ru-ru" %}Песчаные и супесчаные{% endif %}
+                                                    {% if current_lang == "en-gb" %}Sandy and loamy{% endif %}
+                                                </td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">
+                                                    {% if current_lang == "uk-ua" %}600 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}600 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}600 kg/ha{% endif %}
+                                                </td>
+                                                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 td-center">
+                                                    {% if current_lang == "uk-ua" %}360 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}360 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}360 kg/ha{% endif %}
+                                                </td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">
+                                                    {% if current_lang == "uk-ua" %}240 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}240 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}240 kg/ha{% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                    {% if current_lang == "uk-ua" %}Легкі та середні суглинки{% endif %}
+                                                    {% if current_lang == "ru-ru" %}Легкие и средние суглинки{% endif %}
+                                                    {% if current_lang == "en-gb" %}Light and medium loams{% endif %}
+                                                </td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">
+                                                    {% if current_lang == "uk-ua" %}1000 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}1000 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}1000 kg/ha{% endif %}
+                                                </td>
+                                                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 td-center">
+                                                    {% if current_lang == "uk-ua" %}600 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}600 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}600 kg/ha{% endif %}
+                                                </td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">
+                                                    {% if current_lang == "uk-ua" %}400 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}400 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}400 kg/ha{% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                    {% if current_lang == "uk-ua" %}Важкі суглинки та глинисті{% endif %}
+                                                    {% if current_lang == "ru-ru" %}Тяжелые суглинки и глинистые{% endif %}
+                                                    {% if current_lang == "en-gb" %}Heavy loam and clay{% endif %}
+                                                </td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">
+                                                    {% if current_lang == "uk-ua" %}1250 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}1250 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}1250 kg/ha{% endif %}
+                                                </td>
+                                                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3 td-center">
+                                                    {% if current_lang == "uk-ua" %}750 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}750 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}750 kg/ha{% endif %}
+                                                </td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">
+                                                    {% if current_lang == "uk-ua" %}500 кг/га{% endif %}
+                                                    {% if current_lang == "ru-ru" %}500 кг/га{% endif %}
+                                                    {% if current_lang == "en-gb" %}500 kg/ha{% endif %}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <p class="p-justify">
+                                        {% if current_lang == "uk-ua" %}
+                                            Вапняк гранульований WONDER soil PH UP - добриво меліорант, виготовлене з дуже тонкорозмеленого карбонату кальцію (<150 мкм).
+                                            Продукт призначений для швидкого підвищення рівня рН і може застосовуватися на всіх типах ґрунтів та для всіх видів с/г культур.
+                                            Гранульоване вапно можна вносити невеликими дозами щорічно, або один раз на два роки.
+                                        {% endif %}
+                                        {% if current_lang == "ru-ru" %}
+                                            Известняк гранулированный WONDER soil PH UP - удобрение мелиорант, изготовленное из очень тонкорозмеленого карбоната кальция (<150 мкм).
+                                            Продукт предназначен для быстрого повышения уровня рН и может применяться на всех типах почв и для всех видов с/х культур.
+                                            Гранулированную известь можно вносить небольшими дозами ежегодно, или один раз в два года.
+                                        {% endif %}
+                                        {% if current_lang == "en-gb" %}
+                                            Granulated limestone WONDER soil PH UP is an ameliorant fertilizer made of very finely ground calcium carbonate (<150 μm).
+                                            The product is designed to quickly increase the pH level and can be used on all types of soils and for all types of agricultural crops.
+                                            Granular lime can be applied in small doses annually or once every two years.
+                                        {% endif %}
+
+                                    </p>
+                                    <div>
+                                        <table class="table product-attribute-table-main">
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-attribute-table-td-text td-center">
+                                                    {% if current_lang == "uk-ua" %}Ефективність засвоєння NPK, залежно від рН ґрунту{% endif %}
+                                                    {% if current_lang == "ru-ru" %}Эффективность усвоения NPK, в зависимости от рН почвы{% endif %}
+                                                    {% if current_lang == "en-gb" %}Efficiency of NPK assimilation, depending on soil pH{% endif %}
+                                                </td>
+                                            </tr>
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center"></td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">рН 4.5</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">рН 5.0</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">рН 5.5</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">рН 6.0</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">рН 6.5</td>
+                                            </tr>
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">N
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">30%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">43%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">77%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">89%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">100%</td>
+                                            </tr>
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">P<sub>2</sub>O<sub>2</sub></td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">23%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">31%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">48%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">52%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">100%</td>
+                                            </tr>
+                                            <tr class="table-tr-flex">
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">K<sub>2</sub>O</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">33%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">52%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">77%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">100%</td>
+                                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 td-center">100%</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <p class="p-end">
+                                        {% if current_lang == "uk-ua" %}<sup>*</sup>Норми застосування вказані за загальними рекомендаціями.{% endif %}
+                                        {% if current_lang == "ru-ru" %}<sup>*</sup>Нормы применения указаны за общими рекомендациями.{% endif %}
+                                        {% if current_lang == "en-gb" %}<sup>*</sup>Norms of application are specified according to the general recommendations.{% endif %}
+                                    </p>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="product-information-block-3">
+                        {% for attribute_group in attribute_groups %}
+                            <div class="product-attribute-table-block-2">
+                                {% if attribute_group.attribute_group_id == 11 %}
+                                    <div class="product-attribute-table-block-2-header">
+                                        {% if product_id == 54 or product_id == 55 %}
+                                            <h4 class="product-attribute-h4 product-54-55-width-h-1">
+                                                {% if current_lang == "uk-ua" %}Культури{% endif %}
+                                                {% if current_lang == "ru-ru" %}Культуры{% endif %}
+                                                {% if current_lang == "en-gb" %}Crops{% endif %}
+                                            </h4>
+                                            <h4 class="product-attribute-h4 product-54-55-width-h-2">
+                                                {% if current_lang == "uk-ua" %}Кількість обробок{% endif %}
+                                                {% if current_lang == "ru-ru" %}Количество обработок{% endif %}
+                                                {% if current_lang == "en-gb" %}Number of applications{% endif %}
+                                            </h4>
+                                            <h4 class="product-attribute-h4 product-54-55-width-h-3">
+                                                {% if current_lang == "uk-ua" %}Норми внесення добрив{% endif %}
+                                                {% if current_lang == "ru-ru" %}Нормы внесения удобрений{% endif %}
+                                                {% if current_lang == "en-gb" %}Application rates{% endif %}
+                                            </h4>
+                                        {% else %}
+                                            <h4 class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-attribute-h4">
+                                                {% if current_lang == "uk-ua" %}Культури{% endif %}
+                                                {% if current_lang == "ru-ru" %}Культуры{% endif %}
+                                                {% if current_lang == "en-gb" %}Crops{% endif %}
+                                            </h4>
+                                            <h4 class="col-lg-8 col-md-8 col-sm-8 col-xs-8  product-attribute-h4">
+                                                {% if current_lang == "uk-ua" %}Фази та норми внесення добрив{% endif %}
+                                                {% if current_lang == "ru-ru" %}Фазы и нормы внесения удобрений{% endif %}
+                                                {% if current_lang == "en-gb" %}Phases and rates of fertilizer application{% endif %}
+                                            </h4>
+                                        {% endif %}
+                                    </div>
+
+                                    <table class="table product-attribute-table-main">
+                                        {% if product_id == 50 or product_id == 52 or product_id == 53 %}
+                                            <tbody>
+                                            {% for attribute in attribute_group.attribute %}
+                                                <tr class="product-attribute-table-tr">
+                                                    <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 product-attribute-table-td-name-main">{{ attribute.name }}</td>
+                                                    {% set phases = attribute.text|split('*', 3) %}
+                                                    {% for phase in phases %}
+                                                        <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7 product-attribute-table-td-text-main">
+                                                            {{ phase }}
+                                                        </td>
+                                                    {% endfor %}
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        {% else %}
+                                            <tbody>
+                                            {% for attribute in attribute_group.attribute %}
+                                                <tr class="product-attribute-table-tr">
+                                                    <td class="col-lg-4 col-md-4 col-sm-4 col-xs-4 product-attribute-table-td-name-main mobile-6-px">{{ attribute.name }}</td>
+                                                    {% set phases = attribute.text|split('*', 3) %}
+                                                    {% for phase in phases %}
+                                                        <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 product-attribute-table-td-text-main mobile-6-px">
+                                                            {{ phase }}
+                                                        </td>
+                                                    {% endfor %}
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        {% endif %}
+                                        </tbody>
+                                    </table>
+                                    <p class="product-information-block-3-p">
+                                        {% if current_lang == "uk-ua" %}*Норми застосування вказані за загальними рекомендаціями.{% endif %}
+                                        {% if current_lang == "ru-ru" %}*Нормы применения указаны за общими рекомендациями.{% endif %}
+                                        {% if current_lang == "en-gb" %}*Application rates are specified according to the general recommendations.{% endif %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="product-information-block-4">
+                        {% for attribute_group in attribute_groups %}
+                            {% if attribute_group.attribute_group_id == 12 %}
+                                <h4 class="product-attribute-h4">
+                                    {% if current_lang == "uk-ua" %}Застосування{% endif %}
+                                    {% if current_lang == "ru-ru" %}Применение{% endif %}
+                                    {% if current_lang == "en-gb" %}Use{% endif %}
+                                </h4>
+
+                                <table class="table product-attribute-table-use">
+                                    <tbody>
+                                    {% for attribute in attribute_group.attribute %}
+                                        <tr class="col-lg-6 col-md-6 col-sm-6 col-xs-6 product-attribute-table-tr">
+                                            <td class="product-attribute-table-td-use-img">
+                                                <img src="image/catalog/leaves.png"
+                                                     class="product-attribute-table-use-img">
+                                            </td>
+                                            <td class="product-attribute-table-td-use">
+                                                {{ attribute.text }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="tab-pane product-video-block" id="tab-description">
+                        {{ description }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div>
+            <span class="close">&times;</span>
+        </div>
+
+        <h2 class="modal-h2">
+            {% if current_lang == "uk-ua" %}Залишити заявку{% endif %}
+            {% if current_lang == "ru-ru" %}Оставить заявку{% endif %}
+            {% if current_lang == "en-gb" %}Leave a request{% endif %}
+        </h2>
+        <div class="contact-form-block-modal">
+            <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal modal-form">
+                <fieldset class="contact-us-fieldset">
+                    <div class="contact-us-block-2 col-sm-10 col-xs-10">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="form-group required">
+                                <div>
+                                    <input type="text" name="name" value="{{ name }}" id="input-name" class="form-control contact-form-cell-name-modal"
+                                           {% if current_lang == "uk-ua" %}placeholder="Ім'я"{% endif %}
+                                            {% if current_lang == "ru-ru" %}placeholder="Имя"{% endif %}
+                                            {% if current_lang == "en-gb" %}placeholder="Name"{% endif %}
+                                    />
+                                    {% if error_name %}
+                                        <div class="text-danger">{{ error_name }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="form-group required">
+                                <div>
+                                    <input type="text" name="phone" value="{{ phone }}" id="input-phone"
+                                           class="form-control contact-form-cell-phone-modal"
+                                           {% if current_lang == "uk-ua" %}placeholder="Телефон"{% endif %}
+                                            {% if current_lang == "ru-ru" %}placeholder="Телефон"{% endif %}
+                                            {% if current_lang == "en-gb" %}placeholder="Phone"{% endif %}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-us-block-2 col-sm-10 col-xs-10">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="form-group required">
+                                <div>
+                                    <input type="text" name="email" value="{{ email }}" id="input-email" class="form-control contact-form-cell-mail-modal"
+                                           {% if current_lang == "uk-ua" %}placeholder="Пошта"{% endif %}
+                                            {% if current_lang == "ru-ru" %}placeholder="Почта"{% endif %}
+                                            {% if current_lang == "en-gb" %}placeholder="Mail"{% endif %}
+                                    />
+                                    {% if error_name %}
+                                        <div class="text-danger">{{ error_name }}</div>
+                                    {% endif %}
+                                    {% if error_email %}
+                                        <div class="text-danger">{{ error_email }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-us-block-2 col-sm-10 col-xs-10">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="form-group required">
+                                <div>
+						<textarea name="enquiry" rows="10" id="input-enquiry" class="form-control contact-form-cell-message-modal"
+                                  {% if current_lang == "uk-ua" %}placeholder="Задати питання"{% endif %}
+                                {% if current_lang == "ru-ru" %}placeholder="Задать вопрос"{% endif %}
+                                {% if current_lang == "en-gb" %}placeholder="Ask a question"{% endif %}
+						>{{ enquiry }}</textarea>
+                                    {% if error_enquiry %}
+                                        <div class="text-danger">{{ error_enquiry }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{ captcha }}
+                </fieldset>
+                <div class="buttons">
+                    <div class="btn-center">
+                        <input class="btn btn-success btnHeader-1 btnSend" type="submit"
+                               {% if current_lang == "uk-ua" %}value="Відправити"{% endif %}
+                                {% if current_lang == "ru-ru" %}value="Отправить"{% endif %}
+                                {% if current_lang == "en-gb" %}value="Send"{% endif %}
+                        />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("modalWindowBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<script type="text/javascript"><!--
+        $('.swiper-container').swiper({
+            mode: 'horizontal',
+            slidesPerView: 1,
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 30,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: true,
+            loop: true
+        });
+
+    $(document).ready(function () {
+        $('.swiper-container').magnificPopup({
+            type: 'image',
+            delegate: 'a',
+            gallery: {
+                enabled: true
+            }
+        });
+    });
+    -></script>
+
+<script type="text/javascript"><!--
+$('#review').delegate('.pagination a', 'click', function(e) {
+    e.preventDefault();
+
+    $('#review').fadeOut('slow');
+
+    $('#review').load(this.href);
+
+    $('#review').fadeIn('slow');
+});
+
+$('#review').load('index.php?route=product/product/review&product_id={{ product_id }}');
+
+$('#button-review').on('click', function() {
+	$.ajax({
+		url: 'index.php?route=product/product/write&product_id={{ product_id }}',
+		type: 'post',
+		dataType: 'json',
+		data: $("#form-review").serialize(),
+		beforeSend: function() {
+			$('#button-review').button('loading');
+		},
+		complete: function() {
+			$('#button-review').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible').remove();
+
+			if (json['error']) {
+				$('#review').after('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+			}
+
+			if (json['success']) {
+				$('#review').after('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+
+				$('input[name=\'name\']').val('');
+				$('textarea[name=\'text\']').val('');
+				$('input[name=\'rating\']:checked').prop('checked', false);
+			}
+		}
+	});
+});
+
+$(document).ready(function() {
+	$('.thumbnails').magnificPopup({
+		type:'image',
+		delegate: 'a',
+		gallery: {
+			enabled: true
+		}
+	});
+});
+//--></script>
+{{ footer }}

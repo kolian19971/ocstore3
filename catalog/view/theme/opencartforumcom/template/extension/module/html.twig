@@ -1,0 +1,76 @@
+<div class="about-company-block">
+
+
+    {% if heading_title == "Мы - производители" or heading_title == "Ми - виробники" or heading_title == "Wonder is a Manufacturer" %}
+        {% if heading_title %}
+            <h2 class="about-company-h2">{{ heading_title }}</h2>
+        {% endif %}
+        <div class="container container-hide">
+            <div class="row justify-content-between">
+                <div class="col-sm-6 about-company-block-1">
+                    <img src="image/catalog/wearemakers.jpg"/>
+                </div>
+                <div class="col-sm-6 about-company-block-2">
+                    {{ html }}
+{#                    <div class="show-hide-block">#}
+
+{#                    </div>#}
+{#                    <button type="button" class="btn-see-more" onclick="showHide()">#}
+{#                        {% if current_lang == "uk-ua" %}Читати все{% endif %}#}
+{#                        {% if current_lang == "ru-ru" %}Читать все{% endif %}#}
+{#                        {% if current_lang == "en-gb" %}Read everything{% endif %}#}
+{#                        <img src="catalog/view/theme/opencartforumcom/image/btn-show-more.png" class="btn-show-more-img">#}
+{#                    </button>#}
+                </div>
+            </div>
+        </div>
+    {% elseif heading_title == "О компании" or heading_title == "Про компанію" or heading_title == "About company" %}
+        <div class="container container-hide">
+            <div class="row justify-content-between">
+                <div class="col-sm-6 about-company-block-1">
+                    <img src="image/catalog/about-company-block-3.png"/>
+                </div>
+                <div class="col-sm-6 about-company-block-2">
+{#                    <div class="show-hide-block">#}
+                        {{ html }}
+{#                    </div>#}
+{#                    <button type="button" class="btn-see-more" onclick="showHide()">#}
+{#                        Читати все#}
+{#                        <img src="catalog/view/theme/opencartforumcom/image/btn-show-more.png" class="btn-show-more-img">#}
+{#                    </button>#}
+                </div>
+            </div>
+        </div>
+    {% elseif heading_title == "Наши преимущества" or heading_title == "Наші переваги" or heading_title == "Our advantages" %}
+        {% if heading_title %}
+            <h2 class="about-company-h2">{{ heading_title }}</h2>
+        {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 video-block">
+                    {{ html }}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {% if heading_title %}
+            <h2 class="about-company-h2">{{ heading_title }}</h2>
+        {% endif %}
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-sm-12">
+                    {{ html }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+
+<script>
+    function showHide() {
+        ($(".show-hide-block").css("height", "auto"))
+        ($(".btn-see-more").hide())
+    }
+</script>
+

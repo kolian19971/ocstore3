@@ -15,6 +15,8 @@ Disallow: /*&filter_description=
 Disallow: /*?tracking=
 Disallow: /*&tracking=
 
+Host: https://https://wonder-corporation.com
+
 User-agent: Yandex
 Disallow: /*route=checkout/
 Disallow: /index.php?route=product/product*&manufacturer_id=

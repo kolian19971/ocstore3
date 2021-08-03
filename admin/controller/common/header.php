@@ -12,6 +12,14 @@ class ControllerCommonHeader extends Controller {
 			$data['base'] = HTTP_SERVER;
 		}
 
+        if(isset($this->session->data['language'])) {
+            $data['current_lang'] = $this->session->data['language'];
+
+        }else{
+
+            $data['current_lang'] = $this->config->get('config_language');
+        }
+
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();
 		$data['links'] = $this->document->getLinks();

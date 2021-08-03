@@ -488,3 +488,24 @@ $(document).delegate('.agree', 'click', function(e) {
 		});
 	}
 })(window.jQuery);
+
+
+const time = 1000; //ms
+const step = 50000; 
+
+function outNum(num, elem) {
+         let l = document.querySelector('#' +elem,)
+    n = 0;  
+
+    let t = Math.round(time/ (num / step));
+    let interval = setInterval(() => {
+      n = n + step;
+        if (n == num) {
+            clearInterval(interval);
+    }
+        l.innerHTML = n; 
+    },
+    t);
+}
+
+outNum(1800000, 'out-1');

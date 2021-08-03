@@ -3,6 +3,12 @@ class ControllerExtensionModuleCarousel extends Controller {
 	public function index($setting) {
 		static $module = 0;
 
+        if(isset($this->session->data['language'])) {
+            $data['current_lang'] = $this->session->data['language'];
+        }else{
+            $data['current_lang'] = $this->config->get('config_language');
+        }
+
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 		

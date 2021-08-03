@@ -8,6 +8,19 @@ class ControllerCommonMenu extends Controller {
 
 		$this->load->model('catalog/product');
 
+
+        if(isset($this->session->data['language'])) {
+            $data['current_lang'] = $this->session->data['language'];
+        }else{
+            $data['current_lang'] = $this->config->get('config_language');
+        }
+
+        $data['contact'] = $this->url->link('information/contact');
+        $data['main'] = $this->url->link('common/home');
+        $data['aboutCompany'] = $this->url->link('information/information&information_id=4');
+        $data['production'] = $this->url->link('product/manufacturer');
+
+
 		$data['categories'] = array();
 
 		$categories = $this->model_catalog_category->getCategories(0);

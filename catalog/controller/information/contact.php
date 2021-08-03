@@ -7,6 +7,12 @@ class ControllerInformationContact extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+        if(isset($this->session->data['language'])) {
+            $data['current_lang'] = $this->session->data['language'];
+        }else{
+            $data['current_lang'] = $this->config->get('config_language');
+        }
+
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$mail = new Mail($this->config->get('config_mail_engine'));
 			$mail->parameter = $this->config->get('config_mail_parameter');
@@ -19,8 +25,8 @@ class ControllerInformationContact extends Controller {
 			$mail->setTo($this->config->get('config_email'));
 			$mail->setFrom($this->config->get('config_email'));
 			$mail->setReplyTo($this->request->post['email']);
-			$mail->setSender(html_entity_decode($this->request->post['name'], ENT_QUOTES, 'UTF-8'));
-			$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
+			$mail->setSender(html_entity_decode($this->request->post['name'],ENT_QUOTES, 'UTF-8'));
+			$mail->setSubject(html_entity_decode(sprintf($this->language->get('email_subject'), $this->request->post['phone'] .' '. $this->request->post['name']), ENT_QUOTES, 'UTF-8'));
 			$mail->setText($this->request->post['enquiry']);
 			$mail->send();
 
@@ -69,14 +75,15 @@ class ControllerInformationContact extends Controller {
 			$data['image'] = false;
 		}
 
-		$data['store'] = $this->config->get('config_name');
+//		$data['store'] = $this->config->get('config_name');
 		$data['address'] = nl2br($this->config->get('config_address'));
-		$data['geocode'] = $this->config->get('config_geocode');
-		$data['geocode_hl'] = $this->config->get('config_language');
+//        $data['geocode'] = $this->config->get('config_geocode');
+//        $data['geocode_hl'] = $this->config->get('config_language');
 		$data['telephone'] = $this->config->get('config_telephone');
-		$data['fax'] = $this->config->get('config_fax');
-		$data['open'] = nl2br($this->config->get('config_open'));
-		$data['comment'] = $this->config->get('config_comment');
+//		$data['fax'] = $this->config->get('config_fax');
+//		$data['open'] = nl2br($this->config->get('config_open'));
+//		$data['comment'] = $this->config->get('config_comment');
+        $data['store_email'] = $this->config->get('config_email');
 
 		$data['locations'] = array();
 
@@ -169,6 +176,12 @@ class ControllerInformationContact extends Controller {
 	public function success() {
 		$this->load->language('information/contact');
 
+        if(isset($this->session->data['language'])) {
+            $data['current_lang'] = $this->session->data['language'];
+        }else{
+            $data['current_lang'] = $this->config->get('config_language');
+        }
+
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$data['breadcrumbs'] = array();
@@ -180,7 +193,7 @@ class ControllerInformationContact extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('information/contact')
+			'href' => $this->url->link('common/home')
 		);
 
 		$data['continue'] = $this->url->link('common/home');

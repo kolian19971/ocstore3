@@ -1,0 +1,32 @@
+{{ header }}
+<div id="common-success" class="container common-success-background">
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+      {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+      {% set class = 'col-sm-9' %}
+    {% else %}
+      {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }} contact-success-block-flex">
+      <h2 class="contact-success-h2">
+        {% if current_lang == "uk-ua" %}Дякуємо! Ваш запит прийнято.{% endif %}
+        {% if current_lang == "ru-ru" %}Спасибо! Ваш запрос принят.{% endif %}
+        {% if current_lang == "en-gb" %}Thank you! Your request has been accepted.{% endif %}
+      </h2>
+      <h2 class="contact-success-h2">
+        {% if current_lang == "uk-ua" %}Наш спеціаліст зв'яжеться з Вами найближчим часом{% endif %}
+        {% if current_lang == "ru-ru" %}Наш специалист свяжется с Вами в ближайшее время{% endif %}
+        {% if current_lang == "en-gb" %}Our specialist will contact you shortly{% endif %}
+      </h2>
+      <div class="btn-success-margin-top">
+        <a href="{{ continue }}" class="btn btn-success btnSuccess">
+          {% if current_lang == "uk-ua" %}Повернутись на головну{% endif %}
+          {% if current_lang == "ru-ru" %}Вернуться на главную{% endif %}
+          {% if current_lang == "en-gb" %}Return to the main page{% endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}

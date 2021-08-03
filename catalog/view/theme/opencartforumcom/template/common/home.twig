@@ -1,0 +1,132 @@
+{{ header }}
+<header>
+  <div class="header-wonder">
+      <div class="main-block-flex">
+          <div class="main-block-flex">
+              <img src="catalog/view/theme/opencartforumcom/image/banner-frame-text.png" class="banner-text">
+          </div>
+
+            <div class="header-button-group">
+              <div class="div-wonder-soil">
+                  <a href="{{ soil }}">
+                      {% if current_lang == "uk-ua" %}
+                          <img src="catalog/view/theme/opencartforumcom/image/wonder-soil-ua.png"
+                               class="wonder-soil pulse-button">
+                      {% endif %}
+                      {% if current_lang == "ru-ru" %}
+                          <img src="catalog/view/theme/opencartforumcom/image/wonder-soil-ru.png"
+                               class="wonder-soil pulse-button">
+                      {% endif %}
+                      {% if current_lang == "en-gb" %}
+                          <img src="catalog/view/theme/opencartforumcom/image/wonder-soil-en.png"
+                               class="wonder-soil pulse-button">
+                      {% endif %}
+                  </a>
+              </div>
+
+              <div class="div-wonder-leaf">
+                  <a href="{{ leaf }}">
+                      {% if current_lang == "uk-ua" %}
+                          <img src="catalog/view/theme/opencartforumcom/image/wonder-leaf-ua.png"
+                               class="wonder-soil pulse-button">
+                      {% endif %}
+                      {% if current_lang == "ru-ru" %}
+                          <img src="catalog/view/theme/opencartforumcom/image/wonder-leaf-ru.png"
+                               class="wonder-soil pulse-button">
+                      {% endif %}
+                      {% if current_lang == "en-gb" %}
+                          <img src="catalog/view/theme/opencartforumcom/image/wonder-leaf-en.png"
+                               class="wonder-soil pulse-button">
+                      {% endif %}
+                  </a>
+              </div>
+          </div>
+
+              
+      </div>
+  </div>
+
+
+
+</header>
+
+<! -- Кусок для переделки ниже --> 
+
+<div class="centered-wrapper ce_rsce_tao_centered_wrapper_start " style=" ">
+
+	
+	<div class="centered-wrapper-inner">
+<section class="counter-boxes does-repeat ce_rsce_tao_counter_boxes">
+
+		{% if current_lang == "uk-ua" %}
+					<section class="counter-boxes-item rs-column -large-col-4-1 -large-first-row -medium-col-4-1 -medium-first-row -small-col-2-1 -small-first" data-icon="&#xe150;">
+							<p class="is-animated -counter " data-animation-duration=" ">8 025 т</p>
+										<h3>Добрив</h3>
+										<h4>продано</h4>
+			
+					</section>
+		{% endif %}
+	 {% if current_lang == "uk-ua" %}
+					<section class="counter-boxes-item rs-column -large-col-4-1 -large-last -large-first-row -medium-col-4-1 -medium-last -medium-first-row -small-col-2-1 -small-last" data-icon="&#xe08a;">
+		
+							<p class="is-animated -counter " data-animation-duration=" ">2,32 млн.т</p>
+										<h3>Урожаю</h3>
+										<h4>Зібрано</h4>
+			
+					</section>
+	{% endif %}	
+	{% if current_lang == "en-gb" %}
+					<section class="counter-boxes-item rs-column -large-col-4-1 -large-first-row -medium-col-4-1 -medium-first-row -small-col-2-1 -small-first" data-icon="&#xe150;">
+							<p class="is-animated -counter " data-animation-duration=" ">8 025 t</p>
+										<h3>Fertilizers</h3>
+										<h4>sold</h4>
+			
+					</section>
+		{% endif %}
+	 {% if current_lang == "en-gb" %}
+					<section class="counter-boxes-item rs-column -large-col-4-1 -large-last -large-first-row -medium-col-4-1 -medium-last -medium-first-row -small-col-2-1 -small-last" data-icon="&#xe08a;">
+		
+							<p class="is-animated -counter " data-animation-duration=" ">2,32 mt</p>
+										<h3>Harvested</h3>
+										<h4>with our products</h4>
+			
+					</section>
+	{% endif %}	
+		{% if current_lang == "ru-ru" %}
+					<section class="counter-boxes-item rs-column -large-col-4-1 -large-first-row -medium-col-4-1 -medium-first-row -small-col-2-1 -small-first" data-icon="&#xe150;">
+							<p class="is-animated -counter " data-animation-duration=" ">8 025 т</p>
+										<h3>Удобрений</h3>
+										<h4>продано</h4>
+			
+					</section>
+		{% endif %}
+	 {% if current_lang == "ru-ru" %}
+					<section class="counter-boxes-item rs-column -large-col-4-1 -large-last -large-first-row -medium-col-4-1 -medium-last -medium-first-row -small-col-2-1 -small-last" data-icon="&#xe08a;">
+		
+							<p class="is-animated -counter " data-animation-duration=" ">2,32 млн.т</p>
+										<h3>Урожая</h3>
+										<h4>собрано</h4>
+			
+					</section>
+	{% endif %}	
+	
+	</section>
+</div>
+</div>
+
+<! -- Кусок для переделки выше --> 
+
+<div id="common-home" class="container common-home-block">
+  <div class="row row-without-padding">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+
+{{ footer }}

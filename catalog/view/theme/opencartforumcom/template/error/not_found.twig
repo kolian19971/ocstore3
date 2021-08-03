@@ -1,0 +1,21 @@
+{{ header }}
+<div id="error-not-found" class="container error-not-found">
+  <div class="row page-404-block">
+    <p class="text-404">404</p>
+    <p class="text-page-not-found">
+      {% if current_lang == "ru-ru" %}Страница не найдена
+      {% elseif current_lang == "en-gb" %}Page not found
+      {% else %}Сторінку не знайдено{% endif %}
+    </p>
+
+      <button type="button" class="btn btn-success btnHeader-1 btn-return-from-404">
+        <a href="{{ continue }}">
+          {% if current_lang == "ru-ru" %}Вернуться на главную
+          {% elseif current_lang == "en-gb" %}Return to the main page
+          {% else %}Повернутись на головну{% endif %}
+        </a>
+      </button>
+
+  </div>
+</div>
+{{ footer }}

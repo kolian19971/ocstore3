@@ -1,0 +1,148 @@
+<footer class="footer">
+  <div class="container footer-block">
+    <div class="row footer-block-flex">
+      {% if informations %}
+      <div class="col-sm-4 footer-block-width-600-center">
+          <img src="image/catalog/logo.jpg" class="footer-logo">
+   
+          <div class="social-media-icons-block-flex">
+              <a href="https://www.linkedin.com/showcase/wonder_ua/about/" target="_blank">
+                  <i class="fa fa-linkedin"></i>
+              </a>
+              <a href="https://www.youtube.com/channel/UCWmYJcWkvJDW6ELoPX7ZZvw" target="_blank">
+                  <i class="fa fa-youtube-play"></i>
+              </a>
+              {% if isMobile %}
+                  <a href="viber://add?number=380670000304">
+                      <i>
+                          <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="viber" class="viber" role="img"
+                               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M444 49.9C431.3 38.2 379.9.9 265.3.4c0 0-135.1-8.1-200.9 52.3C27.8 89.3
+                           14.9 143 13.5 209.5c-1.4 66.5-3.1 191.1 117 224.9h.1l-.1 51.6s-.8 20.9 13 25.1c16.6 5.2 26.4-10.7 42.3-27.8 8.7-9.4 20.7-23.2 29.8-33.7 82.2
+                           6.9 145.3-8.9 152.5-11.2 16.6-5.4 110.5-17.4 125.7-142 15.8-128.6-7.6-209.8-49.8-246.5zM457.9 287c-12.9 104-89 110.6-103 115.1-6 1.9-61.5
+                           15.7-131.2 11.2 0 0-52 62.7-68.2 79-5.3 5.3-11.1 4.8-11-5.7 0-6.9.4-85.7.4-85.7-.1 0-.1 0 0 0-101.8-28.2-95.8-134.3-94.7-189.8 1.1-55.5 11.6-101
+                           42.6-131.6 55.7-50.5 170.4-43 170.4-43 96.9.4 143.3 29.6 154.1 39.4 35.7 30.6 53.9 103.8 40.6 211.1zm-139-80.8c.4 8.6-12.5
+                           9.2-12.9.6-1.1-22-11.4-32.7-32.6-33.9-8.6-.5-7.8-13.4.7-12.9 27.9 1.5 43.4 17.5 44.8 46.2zm20.3 11.3c1-42.4-25.5-75.6-75.8-79.3-8.5-.6-7.6-13.5.9-12.9
+                           58 4.2 88.9 44.1 87.8 92.5-.1 8.6-13.1 8.2-12.9-.3zm47 13.4c.1 8.6-12.9 8.7-12.9.1-.6-81.5-54.9-125.9-120.8-126.4-8.5-.1-8.5-12.9 0-12.9 73.7.5 133
+                           51.4 133.7 139.2zM374.9 329v.2c-10.8 19-31 40-51.8 33.3l-.2-.3c-21.1-5.9-70.8-31.5-102.2-56.5-16.2-12.8-31-27.9-42.4-42.4-10.3-12.9-20.7-28.2-30.8-46.6-21.3-38.5-26-55.7-26-55.7-6.7-20.8
+                           14.2-41 33.3-51.8h.2c9.2-4.8 18-3.2 23.9 3.9 0 0 12.4 14.8 17.7 22.1 5 6.8 11.7 17.7 15.2 23.8 6.1 10.9 2.3 22-3.7 26.6l-12 9.6c-6.1 4.9-5.3 14-5.3 14s17.8 67.3
+                           84.3 84.3c0 0 9.1.8 14-5.3l9.6-12c4.6-6 15.7-9.8 26.6-3.7 14.7 8.3 33.4 21.2 45.8 32.9 7 5.7 8.6 14.4 3.8 23.6z"></path></svg>
+                      </i>
+                  </a>
+              {% else %}
+              <a title="Должен быть устоновлен Viber для ПК" href="viber://chat?number=+380670000304">
+                  <i>
+                      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="viber" class="viber" role="img"
+                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M444 49.9C431.3 38.2 379.9.9 265.3.4c0 0-135.1-8.1-200.9 52.3C27.8 89.3
+                           14.9 143 13.5 209.5c-1.4 66.5-3.1 191.1 117 224.9h.1l-.1 51.6s-.8 20.9 13 25.1c16.6 5.2 26.4-10.7 42.3-27.8 8.7-9.4 20.7-23.2 29.8-33.7 82.2
+                           6.9 145.3-8.9 152.5-11.2 16.6-5.4 110.5-17.4 125.7-142 15.8-128.6-7.6-209.8-49.8-246.5zM457.9 287c-12.9 104-89 110.6-103 115.1-6 1.9-61.5
+                           15.7-131.2 11.2 0 0-52 62.7-68.2 79-5.3 5.3-11.1 4.8-11-5.7 0-6.9.4-85.7.4-85.7-.1 0-.1 0 0 0-101.8-28.2-95.8-134.3-94.7-189.8 1.1-55.5 11.6-101
+                           42.6-131.6 55.7-50.5 170.4-43 170.4-43 96.9.4 143.3 29.6 154.1 39.4 35.7 30.6 53.9 103.8 40.6 211.1zm-139-80.8c.4 8.6-12.5
+                           9.2-12.9.6-1.1-22-11.4-32.7-32.6-33.9-8.6-.5-7.8-13.4.7-12.9 27.9 1.5 43.4 17.5 44.8 46.2zm20.3 11.3c1-42.4-25.5-75.6-75.8-79.3-8.5-.6-7.6-13.5.9-12.9
+                           58 4.2 88.9 44.1 87.8 92.5-.1 8.6-13.1 8.2-12.9-.3zm47 13.4c.1 8.6-12.9 8.7-12.9.1-.6-81.5-54.9-125.9-120.8-126.4-8.5-.1-8.5-12.9 0-12.9 73.7.5 133
+                           51.4 133.7 139.2zM374.9 329v.2c-10.8 19-31 40-51.8 33.3l-.2-.3c-21.1-5.9-70.8-31.5-102.2-56.5-16.2-12.8-31-27.9-42.4-42.4-10.3-12.9-20.7-28.2-30.8-46.6-21.3-38.5-26-55.7-26-55.7-6.7-20.8
+                           14.2-41 33.3-51.8h.2c9.2-4.8 18-3.2 23.9 3.9 0 0 12.4 14.8 17.7 22.1 5 6.8 11.7 17.7 15.2 23.8 6.1 10.9 2.3 22-3.7 26.6l-12 9.6c-6.1 4.9-5.3 14-5.3 14s17.8 67.3
+                           84.3 84.3c0 0 9.1.8 14-5.3l9.6-12c4.6-6 15.7-9.8 26.6-3.7 14.7 8.3 33.4 21.2 45.8 32.9 7 5.7 8.6 14.4 3.8 23.6z"></path></svg>
+                  </i>
+              </a>
+              {% endif %}
+              <a href="tg://resolve?domain=WONDER_CORPORATION">
+                  <i class="fa fa-telegram"></i>
+              </a>
+              <a href="https://wa.me/380670000304">
+                  <i class="fa fa-whatsapp"></i>
+              </a>
+          </div>
+      </div>
+      {% endif %}
+      <div class="col-sm-2 footer-block-width-600-center">
+          <h5>
+              {% if current_lang == "uk-ua" %}Категорії{% endif %}
+              {% if current_lang == "ru-ru" %}Категории{% endif %}
+              {% if current_lang == "en-gb" %}Categories{% endif %}
+          </h5>
+{#        <h5>{{ text_service }}</h5>#}
+        <ul class="list-unstyled footer-list-block">
+{#          <li><a href="{{ return }}">{{ text_return }}</a></li>#}
+{#          <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>#}
+            <li><a href="{{ main }}">
+                    {% if current_lang == "uk-ua" %}Головна{% endif %}
+                    {% if current_lang == "ru-ru" %}Главная{% endif %}
+                    {% if current_lang == "en-gb" %}Main{% endif %}
+            </a></li>
+
+            {% for category_1 in categories %}
+                <li><a href="{{ category_1.href }}">{{ category_1.name }}</a>
+                    {% if category_1.children %}
+                        <ul>
+                            {% for category_2 in category_1.children %}
+                                <li><a href="{{ category_2.href }}">{{ category_2.name }}</a>
+                                    {% if category_2.children %}
+                                        <ul>
+                                            {% for category_3 in category_2.children %}
+                                                <li><a href="{{ category_3.href }}">{{ category_3.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-3 footer-information-block footer-block-width-600-center">
+            <h5>
+                {% if current_lang == "uk-ua" %}Контактна інформація{% endif %}
+                {% if current_lang == "ru-ru" %}Контактная информация{% endif %}
+                {% if current_lang == "en-gb" %}Contact Information{% endif %}
+            </h5>
+        <ul class="list-unstyled footer-list-block">
+            <li><img src="image/catalog/Products/icon-map.png" class="icon-mail">
+{#                {{ address }}#}
+                {% if current_lang == "uk-ua" %}Україна, м. Вінниця{% endif %}
+                {% if current_lang == "ru-ru" %}Украина, г. Винница{% endif %}
+                {% if current_lang == "en-gb" %}Ukraine, Vinnytsia{% endif %}
+            </li>
+            <li><a href="tel:+380670000304" rel="nofollow">
+                    <img src="image/catalog/Products/icon-phone.png" class="icon-mail">{{ telephone }}
+                </a>
+            </li>
+            <li>
+                <a href="mailto:info@wonder-corporation.com" target="_blank">
+                    <img src="image/catalog/Products/icon-mail.png" class="icon-mail">{{ email }}
+                </a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+      <div class="footer-block-bottom">
+        <a href="https://www.softgen.com.ua" target="_blank">
+            {% if current_lang == "uk-ua" %} Сайт створений Soft Generation © 2021 {% endif %}
+            {% if current_lang == "ru-ru" %} Сайт создан Soft Generation © 2021 {% endif %}
+            {% if current_lang == "en-gb" %} Made by LLC "Soft Generation" © 2021 {% endif %}
+        </a>
+    </div>
+</footer>
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+<script type="text/javascript">
+    $(function() {
+        $(window).scroll(function() {
+            if($(this).scrollTop() != -20) {
+                $('#topNubex').fadeIn();
+            } else {
+                $('#topNubex').fadeOut();
+            }
+        });
+        $('#topNubex').click(function() {
+            $('body,html').animate({scrollTop:0},700);
+        });
+    });
+</script>
+
+</body></html>

@@ -198,6 +198,9 @@
 .fa-star:before {
   content: "\f005";
 }
+.fa-viber:before {
+  content: "\f409";
+}
 .fa-star-o:before {
   content: "\f006";
 }

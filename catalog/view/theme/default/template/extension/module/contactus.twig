@@ -1,0 +1,191 @@
+<div class="container contact-us-block">
+
+	<div id="content" class="{{ class }} our-contacts-main-block-flex">{{ content_top }}
+		<h2 class="contact-us-h2">
+			{% if current_lang == "uk-ua" %}Залишились запитання? Задавайте{% endif %}
+			{% if current_lang == "ru-ru" %}Остались вопросы? Задавайте{% endif %}
+			{% if current_lang == "en-gb" %}Questions left? Ask{% endif %}
+		</h2>
+
+		<div class="contact-form-block">
+			<form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+				<fieldset class="contact-us-fieldset">
+					<div class="contact-us-block-1 col-sm-10 col-xs-10">
+						<div class="col-sm-6 col-xs-6 width-max-600-100">
+							<div class="form-group required">
+								<div>
+									<input type="text" name="name" value="{{ name }}" id="input-name" class="form-control contact-form-cell-name"
+										   {% if current_lang == "uk-ua" %}placeholder="Ім'я"{% endif %}
+											{% if current_lang == "ru-ru" %}placeholder="Имя"{% endif %}
+											{% if current_lang == "en-gb" %}placeholder="Name"{% endif %}
+									/>
+									{% if error_name %}
+										<div class="text-danger">{{ error_name }}</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-xs-6 width-max-600-100">
+							<div class="form-group required">
+								<div>
+									<input type="text" name="phone" value="{{ phone }}" id="input-phone" class="form-control contact-form-cell-phone"
+										   {% if current_lang == "uk-ua" %}placeholder="Телефон"{% endif %}
+											{% if current_lang == "ru-ru" %}placeholder="Телефон"{% endif %}
+											{% if current_lang == "en-gb" %}placeholder="Phone"{% endif %}
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="contact-us-block-2 col-sm-10 col-xs-10">
+						<div class="col-sm-12 col-xs-12">
+							<div class="form-group required">
+								<div>
+									<input type="text" name="email" value="{{ email }}" id="input-email" class="form-control contact-form-cell-mail"
+										   {% if current_lang == "uk-ua" %}placeholder="Пошта"{% endif %}
+											{% if current_lang == "ru-ru" %}placeholder="Почта"{% endif %}
+											{% if current_lang == "en-gb" %}placeholder="Mail"{% endif %}
+									/>
+									{% if error_name %}
+										<div class="text-danger">{{ error_name }}</div>
+									{% endif %}
+									{% if error_email %}
+										<div class="text-danger">{{ error_email }}</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="contact-us-block-2 col-sm-10 col-xs-10">
+						<div class="col-sm-12 col-xs-12">
+							<div class="form-group required">
+								<div>
+						<textarea name="enquiry" rows="10" id="input-enquiry" class="form-control contact-form-cell-message"
+								  {% if current_lang == "uk-ua" %}placeholder="Задати питання"{% endif %}
+								{% if current_lang == "ru-ru" %}placeholder="Задать вопрос"{% endif %}
+								{% if current_lang == "en-gb" %}placeholder="Ask a question"{% endif %}
+						>{{ enquiry }}</textarea>
+									{% if error_enquiry %}
+										<div class="text-danger">{{ error_enquiry }}</div>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{{ captcha }}
+				</fieldset>
+				<div class="buttons">
+					<div class="btn-center">
+						<input class="btn btn-success btnHeader-1" type="submit"
+							 {% if current_lang == "uk-ua" %}value="Відправити"{% endif %}
+							 {% if current_lang == "ru-ru" %}value="Отправить"{% endif %}
+							 {% if current_lang == "en-gb" %}value="Send"{% endif %}
+						/>
+					</div>
+				</div>
+			</form>
+		</div>
+		{{ content_bottom }}</div>
+	{{ column_right }}</div>
+</div>
+
+{#	<div class="contact-us-form col-sm-5">#}
+{#		<form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">#}
+{#			<fieldset class="contact-us-fieldset">#}
+{#				<div class="contact-us-block-1 col-sm-10">#}
+{#					<div class="col-sm-6">#}
+{#						<div class="form-group required">#}
+{#							<div>#}
+{#								<input type="text" name="name" value="{{ name }}" id="input-name"#}
+{#									   class="form-control contact-us-form-cell"#}
+{#										{% if current_lang == "uk-ua" %}#}
+{#											placeholder="Ім'я"#}
+{#										{% endif %}#}
+{#										{% if current_lang == "ru-ru" %}#}
+{#											placeholder="Имя"#}
+{#										{% endif %}#}
+{#										{% if current_lang == "en-gb" %}#}
+{#											placeholder="Name"#}
+{#										{% endif %}#}
+{#								/>#}
+{#								{% if error_name %}#}
+{#									<div class="text-danger">{{ error_name }}</div>#}
+{#								{% endif %}#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="col-sm-6">#}
+{#						<div class="form-group required">#}
+{#							<div>#}
+{#								<input type="text" name="email" value="{{ email }}" id="input-email" class="form-control"#}
+{#										{% if current_lang == "uk-ua" %}#}
+{#											placeholder="Телефон"#}
+{#										{% endif %}#}
+{#										{% if current_lang == "ru-ru" %}#}
+{#											placeholder="Телефон"#}
+{#										{% endif %}#}
+{#										{% if current_lang == "en-gb" %}#}
+{#											placeholder="Phone"#}
+{#										{% endif %}#}
+{#								/>#}
+{#								{% if error_name %}#}
+{#									<div class="text-danger">{{ error_name }}</div>#}
+{#								{% endif %}#}
+{#								{% if error_email %}#}
+{#									<div class="text-danger">{{ error_email }}</div>#}
+{#								{% endif %}#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+
+{#				<div class="contact-us-block-2 col-sm-10">#}
+{#					<div class="col-sm-12">#}
+{#						<div class="form-group required">#}
+{#							<div>#}
+{#						<textarea name="enquiry" rows="10" id="input-enquiry" class="form-control"#}
+{#								{% if current_lang == "uk-ua" %}#}
+{#									placeholder="Задати питання"#}
+{#								{% endif %}#}
+{#								{% if current_lang == "ru-ru" %}#}
+{#									placeholder="Задать вопрос"#}
+{#								{% endif %}#}
+{#								{% if current_lang == "en-gb" %}#}
+{#									placeholder="Ask a question"#}
+{#								{% endif %}#}
+{#						>{{ enquiry }}</textarea>#}
+{#								{% if error_enquiry %}#}
+{#									<div class="text-danger">{{ error_enquiry }}</div>#}
+{#								{% endif %}#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+
+
+{#				{{ captcha }}#}
+{#			</fieldset>#}
+{#			<div class="buttons">#}
+{#				<div class="btn-center">#}
+{#					<input class="btn btn-primary" type="submit"#}
+{#							{% if current_lang == "uk-ua" %}#}
+{#								value="Відправити"#}
+{#							{% endif %}#}
+{#							{% if current_lang == "ru-ru" %}#}
+{#								value="Отправить"#}
+{#							{% endif %}#}
+{#							{% if current_lang == "en-gb" %}#}
+{#								value="Send"#}
+{#							{% endif %}#}
+{#					/>#}
+{#				</div>#}
+{#			</div>#}
+{#		</form>#}
+{#	</div>#}
+
+
+
+

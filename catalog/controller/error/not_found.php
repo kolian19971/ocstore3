@@ -12,6 +12,12 @@ class ControllerErrorNotFound extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 
+        if(isset($this->session->data['language'])) {
+            $data['current_lang'] = $this->session->data['language'];
+        }else{
+            $data['current_lang'] = $this->config->get('config_language');
+        }
+
 		if (isset($this->request->get['route'])) {
 			$url_data = $this->request->get;
 

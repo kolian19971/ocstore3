@@ -105,7 +105,7 @@ class ControllerStartupSeoUrl extends Controller {
 
 		$data = array();
 
-		parse_str($url_info['query'], $data);
+	    parse_str($url_info['query'], $data);
 		
 		//seo_pro baseRewrite
 		if($this->config->get('config_seo_pro')){		

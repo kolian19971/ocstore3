@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="{{ direction }}" lang="{{ lang }}">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+{% if robots %}
+<meta name="robots" content="{{ robots }}" />
+{% endif %}
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ og_url }}" />
+{% if og_image %}
+<meta property="og:image" content="{{ og_image }}" />
+{% else %}
+<meta property="og:image" content="{{ logo }}" />
+{% endif %}
+<meta property="og:site_name" content="{{ name }}" />
+<meta name="google-site-verification" content="2ATnYUr8Dd_pYanAxfqcCkk-ktLLkzR_kMv_WqMGkGU" />
+
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,800;1,600;1,700&display=swap" rel="stylesheet">
+<link href="catalog/view/theme/opencartforumcom/stylesheet/stylesheet.css" rel="stylesheet">
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %}
+
+</head>
+<body>
+<nav id="top">
+  <div class="container">
+    <div class="nav pull-left">
+        <div id="topNubex" class="header-wonder-flex">
+            <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="logo" />
+        </div>
+    </div>
+      <div class="nav pull-right language">
+          <div class="header-menu-visibility">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="{{ main }}">
+                          {% if current_lang == "uk-ua" %}Головна{% endif %}
+                          {% if current_lang == "ru-ru" %}Главная{% endif %}
+                          {% if current_lang == "en-gb" %}Home{% endif %}
+                      </a>
+                  </li>
+{#                  {% if categories %}#}
+{#                      {% for category in categories %}#}
+{#                          {% if category.children %}#}
+{#                              <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>#}
+{#                                  <div class="dropdown-menu">#}
+{#                                      <div class="dropdown-inner"> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}#}
+{#                                              <ul class="list-unstyled">#}
+{#                                                  {% for child in children %}#}
+{#                                                      <li><a href="{{ child.href }}">{{ child.name }}</a></li>#}
+{#                                                  {% endfor %}#}
+{#                                              </ul>#}
+{#                                          {% endfor %}</div>#}
+{#                                      <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>#}
+{#                              </li>#}
+{#                          {% else %}#}
+{#                              <li><a href="{{ category.href }}">{{ category.name }}</a></li>#}
+{#                          {% endif %}#}
+{#                      {% endfor %}#}
+{#                  {% endif %}#}
+{#                  <li>#}
+{#                      <a href="{{ main }}">#}
+{#                          {% if current_lang == "uk-ua" %}Партнерство{% endif %}#}
+{#                          {% if current_lang == "ru-ru" %}Партнерство{% endif %}#}
+{#                          {% if current_lang == "en-gb" %}Partnership{% endif %}#}
+{#                      </a>#}
+{#                  </li>#}
+                  <li>
+                      <a href="{{ aboutCompany }}">
+                          {% if current_lang == "uk-ua" %}Про нас{% endif %}
+                          {% if current_lang == "ru-ru" %}О нас{% endif %}
+                          {% if current_lang == "en-gb" %}About us{% endif %}
+                      </a>
+                  </li>
+                  <li>
+                      <div class="btn-category">
+                          <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                              {% if current_lang == "uk-ua" %}Каталог{% endif %}
+                              {% if current_lang == "ru-ru" %}Каталог{% endif %}
+                              {% if current_lang == "en-gb" %}Products{% endif %}
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                              {% if categories %}
+                                  {% for category in categories %}
+                                      {% if category.children %}
+                                          <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle"
+                                                                  data-toggle="dropdown">{{ category.name }}</a>
+                                              <div class="dropdown-menu">
+                                                  <div class="dropdown-inner"> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                                                          <ul class="list-unstyled">
+                                                              {% for child in children %}
+                                                                  <li class="background-color-darkgreen"><a
+                                                                       href="{{ child.href }}">{{ child.name }}</a>
+                                                                  </li>
+                                                              {% endfor %}
+                                                          </ul>
+                                                      {% endfor %}</div>
+                                                  <a href="{{ category.href }}"
+                                                     class="see-all">{{ text_all }} {{ category.name }}</a></div>
+                                          </li>
+                                      {% else %}
+                                          <li class="background-color-darkgreen"><a
+                                                      href="{{ category.href }}">{{ category.name }}</a></li>
+                                      {% endif %}
+                                  {% endfor %}
+                              {% endif %}
+                          </ul>
+                      </div>
+                  </li>
+{#                  <li>#}
+{#                      <a href="{{ production }}">#}
+{#                          {% if current_lang == "uk-ua" %}Виробництво{% endif %}#}
+{#                          {% if current_lang == "ru-ru" %}Производство{% endif %}#}
+{#                          {% if current_lang == "en-gb" %}Production{% endif %}#}
+{#                      </a>#}
+{#                  </li>#}
+                  <li>
+                      <a href="{{ contact }}">
+                          {% if current_lang == "uk-ua" %}Контакти{% endif %}
+                          {% if current_lang == "ru-ru" %}Контакты{% endif %}
+                          {% if current_lang == "en-gb" %}Contact us{% endif %}
+                      </a>
+                  </li>
+              </ul>
+          </div>
+
+          <div class="change-language">{{ language }}</div>
+
+          <div class="btn-group btn-group-visibility">
+              <button class="btn btn-link dropdown-toggle" data-toggle="dropdown"><img src="image/catalog/menu.png"
+                                                                                       class="drop-down-menu"/>
+                  {% if [class.dropdown-toggle]=="false" %}
+                      TRUE
+                  {% endif %}
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                  <li>
+                      <a href="{{ main }}">
+                          {% if current_lang == "uk-ua" %}Головна{% endif %}
+                          {% if current_lang == "ru-ru" %}Главная{% endif %}
+                          {% if current_lang == "en-gb" %}Home{% endif %}
+                      </a>
+                  </li>
+                    {% if categories %}
+                      {% for category in categories %}
+                          {% if category.children %}
+                              <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
+                                  <div class="dropdown-menu">
+                                      <div class="dropdown-inner"> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                                              <ul class="list-unstyled">
+                                                  {% for child in children %}
+                                                      <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+                                                  {% endfor %}
+                                              </ul>
+                                          {% endfor %}</div>
+                                      <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>
+                              </li>
+                          {% else %}
+                              <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+                          {% endif %}
+                      {% endfor %}
+                  {% endif %}
+                  <li>
+                      <a href="{{ aboutCompany }}">
+                          {% if current_lang == "uk-ua" %}Про нас{% endif %}
+                          {% if current_lang == "ru-ru" %}О нас{% endif %}
+                          {% if current_lang == "en-gb" %}About us{% endif %}
+                      </a>
+                  </li>
+{#                  <li>#}
+{#                      <a href="{{ production }}">#}
+{#                          {% if current_lang == "uk-ua" %}Виробництво{% endif %}#}
+{#                          {% if current_lang == "ru-ru" %}Производство{% endif %}#}
+{#                          {% if current_lang == "en-gb" %}Production{% endif %}#}
+{#                      </a>#}
+{#                  </li>#}
+                  <li>
+                      <a href="{{ contact }}">
+                          {% if current_lang == "uk-ua" %}Контакти{% endif %}
+                          {% if current_lang == "ru-ru" %}Контакты{% endif %}
+                          {% if current_lang == "en-gb" %}Contact us{% endif %}
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MX0NBT0N3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1MX0NBT0N3');
+</script>
+
+
+{#{{ menu }}#}
